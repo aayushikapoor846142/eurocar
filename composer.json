@@ -1,0 +1,22 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
+    },
+    "require-dev": {
+        "laravel/pail": "*",
+        "laravel/sail": "*"
+    },
+    "require": {
+        "laravel/framework": "^12.56",
+        "laravel/ui": "^4.6",
+        "nunomaduro/collision": "*",
+        "laravel/tinker": "*"
+    }
+}
