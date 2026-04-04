@@ -25,5 +25,10 @@ pipeline {
                 bat 'php artisan migrate --force'
             }
         }
+        stage('Test') {
+            steps {
+                bat 'php artisan test'
+            }
+        }
     }
 }
