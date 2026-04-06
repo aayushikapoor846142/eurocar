@@ -23,7 +23,6 @@ pipeline {
         // ✅ ADD THIS STAGE
         stage('Environment Setup') {
             steps {
-                bat 'if not exist .env copy .env.example .env'
                 bat 'php artisan key:generate'
                 bat 'php artisan config:clear'
                 bat 'php artisan cache:clear'
