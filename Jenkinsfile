@@ -14,11 +14,11 @@ pipeline {
             }
         }
 
-        stage('Install') {
-            steps {
-                bat 'composer install --no-interaction --prefer-dist'
-            }
-        }
+        // stage('Install') {
+        //     steps {
+        //         bat 'composer install --no-interaction --prefer-dist'
+        //     }
+        // }
 
         // ✅ ADD THIS STAGE
         stage('Environment Setup') {
