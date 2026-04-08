@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-
+  
     <!-- Admin Users Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
@@ -57,6 +57,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
     <!-- Recent Users -->
@@ -67,6 +68,17 @@
                 <a href="{{ route('admin.users.index') }}" class="btn btn-sm btn-primary">View All</a>
             </div>
             <div class="card-body">
+                 <button class="btn btn-primary" id="login_to_portal" onclick="autoLoginUser('ayu846142@yopmail.com')">
+        Login to Portal
+    </button>
+    <div id="portaldiv" style="display:none">
+        
+    <iframe id="iframe"
+        src="https://login.mulyankangurukul.ai/home"
+        width="100%"
+        height="700"
+    ></iframe>
+</div>
                 <div class="table-responsive">
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
@@ -105,4 +117,30 @@
         </div>
     </div>
 </div>
+  <script>
+    
+
+    function autoLoginUser(email) {
+        
+       // alert(email);
+        fetch('https://login.mulyankangurukul.ai/api/generate-login-link', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                api_key: 'SECRET_KEY'
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            $('#login_to_portal').hide();
+            $('#portaldiv').show();
+            // Load inside iframe
+            document.getElementById('iframe').src = data.login_url;
+        });
+    }
+    </script>
 @endsection
